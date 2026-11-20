@@ -1,0 +1,7 @@
+# Đối chứng: train VI từ đầu (không dùng trọng số EN) để so sánh với fine-tune.
+# Chạy: python -m src.train --config configs/full_gpu_vi_scratch.yaml
+base: full_gpu.yaml
+run: {name: vi_scratch}
+data: {lang: vi, charset: data/charset.txt}
+init_from: null
+train: {epochs: 30}

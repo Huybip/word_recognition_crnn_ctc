@@ -1,0 +1,8 @@
+# PHA (b): fine-tune từ model EN sang VI. Mở rộng lớp Linear cuối (66 -> 200 ký tự), giữ trọng số cũ.
+# Cần chạy xong pha (a) trước. Chạy: python -m src.train --config configs/full_gpu_vi_finetune.yaml
+base: full_gpu.yaml
+run: {name: vi_finetune}
+data: {lang: vi, charset: data/charset.txt}      # charset.txt = EN + ký tự VI (ký tự EN giữ nguyên index)
+init_from: outputs/runs/en_base/best.pt
+optim: {lr: 0.0003}                              # LR nhỏ hơn để không phá đặc trưng đã học
+train: {epochs: 20}

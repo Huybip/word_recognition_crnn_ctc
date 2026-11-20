@@ -1,0 +1,9 @@
+category,group,count,share
+del_char,deletion,390,0.5124835742444153
+del_vi_diacritic_letter,deletion,127,0.16688567674113008
+other_sub,other,121,0.1590013140604468
+space_del,space,113,0.14848883048620237
+lookalike,lookalike,4,0.005256241787122208
+space_sub,space,2,0.002628120893561104
+case,case,2,0.002628120893561104
+tone_wrong,diacritic,2,0.002628120893561104

@@ -1,0 +1,40 @@
+# ===== Cấu hình sinh dữ liệu (Giai đoạn 1) =====
+seed: 42
+out_root: data/synth
+
+# Ảnh được RENDER ở chiều cao `render.size` (nét dấu tiếng Việt còn rõ),
+# còn Dataset resize về `img_height` khi huấn luyện (mặc định 32; nên thử thêm 48).
+render:
+  size: 64
+  margins: [4, 4, 4, 4]     # top, left, bottom, right (px)
+img_height: 32
+
+# Số ảnh mỗi tập. train_clean = cùng nhãn với train nhưng KHÔNG augmentation
+# (dùng cho ablation "có/không augmentation"); đặt 0 để bỏ qua.
+counts:
+  en: {train: 50000, val: 5000, test: 5000, hard: 2000, train_clean: 20000}  # train_clean phục vụ ablation augmentation
+  vi: {train: 50000, val: 5000, test: 5000, hard: 2000, train_clean: 0}
+smoke_counts: {train: 400, val: 80, test: 80, hard: 80, train_clean: 80}
+
+# Mức augmentation từng tập (định nghĩa chi tiết trong data/generate_dataset.py)
+aug_level: {train: normal, val: normal, test: normal, hard: hard, train_clean: none}
+
+text:
+  max_chars: 25
+  # xác suất số "mục từ điển" ghép thành một dòng: [1 mục, 2 mục, 3 mục]
+  n_words_weights: {en: [0.55, 0.30, 0.15], vi: [0.70, 0.30]}
+  case_weights: {lower: 0.50, capitalize: 0.20, upper: 0.30, title: 0.10}
+  code_ratio: 0.08          # tỉ lệ chuỗi số/mã (O/0, l/1/I...) phục vụ phân tích lỗi
+
+vocab:
+  # Chia TỪ VỰNG (không chia ảnh) -> nhãn các tập không thể trùng nhau
+  split_ratio: {train: 0.80, val: 0.10, test: 0.05, hard: 0.05}
+  vi_file: data/vi_words.txt   # tạo bằng data/make_vi_wordlist.py
+
+fonts:
+  use_trdg_fonts: true
+  extra_dirs: [data/fonts_extra]   # thả thêm font .ttf/.otf (Roboto, Noto, Times New Roman...)
+  system_dirs: [/usr/share/fonts]   # thư mục không tồn tại sẽ bị bỏ qua
+  exclude_regex: "Hairline|Thin|unifont|Math"   # nét quá mảnh / font pixel / font toán
+  holdout_ratio: 0.20              # font chỉ dùng cho tập hard ("font lạ")
+  min_fonts_warn: 6

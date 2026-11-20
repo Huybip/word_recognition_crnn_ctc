@@ -1,0 +1,62 @@
+{
+  "n": 80,
+  "n_chars": 796,
+  "S": 272,
+  "D": 116,
+  "I": 21,
+  "cer": 0.5138190954773869,
+  "word_acc": 0.0125,
+  "ci_cer": [
+    0.46182714339042175,
+    0.5673238879410528
+  ],
+  "ci_word": [
+    0.0,
+    0.0375
+  ],
+  "total_err": 409,
+  "cat": {
+    "case": 8,
+    "modifier_missing": 5,
+    "del_vi_diacritic_letter": 40,
+    "other_sub": 171,
+    "tone_extra": 8,
+    "tone_missing": 17,
+    "del_char": 68,
+    "ins_char": 17,
+    "space_sub": 29,
+    "diacritic_compound": 11,
+    "tone_wrong": 11,
+    "space_del": 8,
+    "modifier_extra": 5,
+    "lookalike": 7,
+    "space_ins": 4
+  },
+  "group": {
+    "case": 8,
+    "diacritic": 57,
+    "deletion": 108,
+    "other": 171,
+    "insertion": 17,
+    "space": 41,
+    "lookalike": 7
+  },
+  "ladder": {
+    "đầy đủ": {
+      "cer": 0.5138190954773869,
+      "word_acc": 0.0125
+    },
+    "bỏ dấu": {
+      "cer": 0.4396984924623116,
+      "word_acc": 0.0375
+    },
+    "bỏ hoa/thường": {
+      "cer": 0.5037688442211056,
+      "word_acc": 0.0125
+    },
+    "bỏ dấu + hoa/thường": {
+      "cer": 0.4221105527638191,
+      "word_acc": 0.05
+    }
+  }
+}

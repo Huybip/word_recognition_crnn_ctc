@@ -1,0 +1,15 @@
+torch>=2.0
+numpy
+Pillow>=9.5
+trdg==1.8.0          # TextRecognitionDataGenerator (tên pip: trdg)
+setuptools<81        # trdg -> arabic_reshaper cần pkg_resources
+fonttools            # kiểm tra cmap của font
+pyyaml
+matplotlib
+tqdm
+pytest<9
+pyctcdecode
+rapidfuzz           # Levenshtein nhanh 
+tensorboard
+jiwer               # kiểm tra chéo CER
+

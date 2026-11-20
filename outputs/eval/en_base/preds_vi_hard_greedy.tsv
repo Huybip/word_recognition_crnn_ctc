@@ -1,0 +1,81 @@
+path	ref	hyp	edit_distance
+images\000003.png	lợ lợ	D	5
+images\000025.png	tinh	D	4
+images\000047.png	Kiên	D	4
+images\000071.png	thun	D	4
+images\000039.png	Ẻo hoẹ	D	6
+images\000024.png	bị gậy	D	6
+images\000049.png	ĐIÊU	D	4
+images\000016.png	Chừa	D	4
+images\000032.png	cơ thuỷ	D	7
+images\000037.png	xế tuổi	D	7
+images\000001.png	cứ như	D	6
+images\000063.png	VÁ VÍU	D	6
+images\000046.png	Rõ khéo	D	7
+images\000061.png	thông lệ	D	8
+images\000007.png	học lệch	D	8
+images\000072.png	lình xình	D	9
+images\000022.png	quân hiệu	D	9
+images\000000.png	CUA BẤY	D	7
+images\000038.png	Chứng tá	D	8
+images\000050.png	Quỉ Quái	D	8
+images\000054.png	Giấy kính	D	9
+images\000031.png	túng thế	DO	8
+images\000076.png	ngưu đậu	DO	8
+images\000048.png	chầu hầu	DO	8
+images\000060.png	thổ châu	O	8
+images\000066.png	náu tiếng	DO	9
+images\000009.png	CHIA BÔI	DO	8
+images\000015.png	NHẠC VIỆN	DO	9
+images\000002.png	hoạt chất	DO	9
+images\000020.png	DẤU MÁ	DO	5
+images\000058.png	SẮM VAI	DO	7
+images\000043.png	ước đoán	DO	8
+images\000056.png	cuôr knia	D	9
+images\000052.png	Ma chay	D	7
+images\000036.png	Bảo Mẫu	D	7
+images\000059.png	Nóng bức	D	8
+images\000068.png	KHÉP KÍN	D	8
+images\000005.png	tiên điền	D	9
+images\000021.png	cười thầm	D	9
+images\000044.png	GIAO LONG	D	9
+images\000010.png	tên sách	D	8
+images\000029.png	Nhe Răng	D	8
+images\000042.png	ọc ọc cối	D	9
+images\000041.png	gia nô ren	D	10
+images\000033.png	Mặn Nồng	D	8
+images\000070.png	XEO GIẢI MÃ	D	11
+images\000004.png	Gia chủ sì sụt	D	14
+images\000028.png	Sơn pháo mật	D	12
+images\000067.png	tưởng niệm	D	10
+images\000035.png	Để tóc thất sừng	D	16
+images\000012.png	tội ác khám phá	D	15
+images\000074.png	vênh vểnh	D	9
+images\000027.png	Tính Đối Tụng	D	13
+images\000057.png	nghèo khó	D	9
+images\000018.png	Thoát giang	D	11
+images\000026.png	ĐẲNG TĨNH	D	9
+images\000045.png	THỐN CÔNG CỤ	D	12
+images\000079.png	Cây Hàng Túng Thế	D	17
+images\000011.png	phốp pháp	DD	9
+images\000064.png	đại gian tang chứng	D	19
+images\000069.png	lười như hủi lê	D	15
+images\000051.png	chất kết dính mãn ý	DO	19
+images\000040.png	nam mộc hương	DO	13
+images\000078.png	Chấp nê tá dược	DO	15
+images\000006.png	Ém Dẹm Đèo Bồng	D	14
+images\000019.png	đánh bài khắc họa	D	17
+images\000034.png	Lâm luật thành tật	D	18
+images\000073.png	Phôn lâm luật	D	13
+images\000023.png	ẢNH KẾ ỐI CHAO ÔI	D	17
+images\000062.png	TRỊNH DOANH	D	10
+images\000014.png	Hồng Kì Đức Hoá	D	15
+images\000017.png	RA SỨC BÌNH CƯ	D	14
+images\000055.png	BẤT DIỆT BỒNG TRỐNG	D	18
+images\000053.png	vĩ thượng lử đử	D	15
+images\000065.png	LƯỢN QUANH KHÁNG	D	16
+images\000030.png	Sai Trái Giấy Phèn	D	18
+images\000008.png	Lâu Nhâu Gà Nước	D	16
+images\000077.png	Vĩnh thịnh ngốc nghếch	D	22
+images\000075.png	kiếm cơi trầu lắng đọng	D	23
+images\000013.png	MARATHON CHỮ NHO	DO	15

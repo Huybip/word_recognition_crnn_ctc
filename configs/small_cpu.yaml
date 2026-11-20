@@ -1,0 +1,37 @@
+# ===== Cấu hình NHỎ chạy CPU: smoke test / overfit 200 ảnh =====
+# Chạy: python -m src.train --config configs/small_cpu.yaml            (smoke 2 epoch)
+#       python -m src.train --config configs/small_cpu.yaml --overfit 200 --set train.epochs=100 run.name=overfit200
+run: {name: smoke_en, out_dir: outputs/runs, seed: 42, device: auto, deterministic: false}
+
+data:
+  root: data/synth
+  lang: en                          # en | vi
+  charset: data/charset_en.txt      # EN: charset_en.txt | VI: charset.txt (EN + ký tự VI)
+  train_split: train
+  val_split: val
+  batch_size: 16
+  num_workers: 0
+  bucket: true                      # gom ảnh cùng độ rộng vào một batch
+  cache_in_ram: true
+  max_train_samples: null
+  max_val_samples: null
+  max_width: 768
+
+model:                              # mô hình thu nhỏ (~2 triệu tham số) cho CPU
+  img_height: 32
+  cnn: {channels: [32, 64, 128, 256], width_strides: [2, 2]}
+  rnn: {use_rnn: true, hidden: 128, layers: 2, dropout: 0.0, use_packing: false}
+  head_dropout: 0.0
+
+optim: {name: adamw, lr: 0.003, weight_decay: 0.01, betas: [0.9, 0.999], clip_grad_norm: 5.0}
+sched: {name: onecycle, pct_start: 0.15, div_factor: 25, final_div_factor: 1000}
+
+train:
+  epochs: 2
+  amp: false
+  log_every: 0
+  max_infeasible_frac: 0.05         # cấu hình nhỏ chạy H=32: chấp nhận vài mẫu font hẹp
+  early_stop: {patience: 8, min_delta: 0.0}
+
+init_from: null
+debug: {overfit_n: 0}

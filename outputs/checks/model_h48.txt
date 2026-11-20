@@ -1,0 +1,43 @@
+==================== 1) SUMMARY (num_classes=201 = 200 ký tự + blank) ====================
+Input: (2, 1, 48, 320) (N,1,H,W)
+tầng          loại       shape đầu ra              #tham số
+-----------------------------------------------------------
+cnn.0.0       Conv2d     (2, 64, 48, 320)               576
+cnn.1         MaxPool2d  (2, 64, 24, 160)                 0
+cnn.2.0       Conv2d     (2, 128, 24, 160)           73,728
+cnn.3         MaxPool2d  (2, 128, 12, 80)                 0
+cnn.4.0       Conv2d     (2, 256, 12, 80)           294,912
+cnn.5.0       Conv2d     (2, 256, 12, 80)           589,824
+cnn.6         MaxPool2d  (2, 256, 6, 80)                  0
+cnn.7.0       Conv2d     (2, 512, 6, 80)          1,179,648
+cnn.8.0       Conv2d     (2, 512, 6, 80)          2,359,296
+cnn.9         MaxPool2d  (2, 512, 3, 80)                  0
+cnn.10        Conv2d     (2, 512, 1, 80)            786,432
+  -> sau BN+ReLU, squeeze chiều cao, permute: (T,N,C)=(80,2,512)
+rnn           LSTM       (80, 2, 512)             3,153,920
+fc            Linear     (80, 2, 201)               103,113
+-----------------------------------------------------------
+Output log_softmax: (80, 2, 201) (T,N,C) | T = W//4 = 320//4 = 80
+Tham số: tổng 8,545,929 (huấn luyện 8,545,929) | CNN 5,288,896 | RNN 3,153,920 | FC 103,113
+
+==================== 2) FORWARD + CTC + BACKWARD trên batch giả ====================
+images (4, 1, 48, 320) -> log_probs (80, 4, 201) (T,N,C) | input_lengths=[80, 64, 50, 32] target_lengths=[10, 7, 5, 3]
+tổng exp(log_probs) theo C (phải =1): 1.000000
+CTCLoss = 45.6555 | hữu hạn: True | gradient hữu hạn: True
+
+==================== 3) KIỂM TRA T so với nhãn (img_height=48) ====================
+Số mẫu: 1280 | nhãn dài nhất Lmax = 25 | rộng min/max sau resize: 32/689 px
+Yêu cầu bảo thủ theo đề bài: T >= 2*Lmax+1 = 51
+  stride 4: T(rộng max)= 172 >= 51 | vi phạm CHÍNH XÁC (T<L+R):     0 | vi phạm bảo thủ (T<2L+1):     1
+  stride 2: T(rộng max)= 344 >= 51 | vi phạm CHÍNH XÁC (T<L+R):     0 | vi phạm bảo thủ (T<2L+1):     0
+  stride 1: T(rộng max)= 689 >= 51 | vi phạm CHÍNH XÁC (T<L+R):     0 | vi phạm bảo thủ (T<2L+1):     0
+=> stride 4 có mẫu dưới ngưỡng bảo thủ. Hai cách khắc phục:
+   (a) giảm stride: cnn.width_strides=[2, 1] (configs/model_s2.yaml), T gấp 2 lần, RNN/CNN chậm hơn;
+   (b) img_height đã là 48; chỉ còn vài mẫu font rất hẹp dưới ngưỡng bảo thủ (vẫn thỏa điều kiện chính xác).
+
+Cấu hình hiện tại: total_stride = 4
+  mẫu rủi ro nhất: test   W= 182 T= 45 cần>=25 (L=23) 'Woodcuts buzzes manuary'
+  mẫu rủi ro nhất: hard   W= 183 T= 45 cần>=22 (L=22) 'preimitated roboration'
+  mẫu rủi ro nhất: hard   W= 179 T= 44 cần>=21 (L=21) 'recounting idioreflex'
+  mẫu rủi ro nhất: hard   W= 220 T= 55 cần>=26 (L=25) 'skanda tricon gillyflower'
+  mẫu rủi ro nhất: hard   W=  68 T= 17 cần>= 8 (L=7) 'OFFERER'

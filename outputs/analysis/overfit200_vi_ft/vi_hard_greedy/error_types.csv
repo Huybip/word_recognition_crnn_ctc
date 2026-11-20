@@ -1,0 +1,16 @@
+category,group,count,share
+other_sub,other,264,0.3987915407854985
+del_char,deletion,187,0.2824773413897281
+del_vi_diacritic_letter,deletion,86,0.1299093655589124
+space_sub,space,58,0.08761329305135952
+space_del,space,18,0.027190332326283987
+ins_char,insertion,10,0.015105740181268883
+case,case,8,0.012084592145015106
+tone_missing,diacritic,6,0.00906344410876133
+tone_wrong,diacritic,6,0.00906344410876133
+lookalike,lookalike,5,0.0075528700906344415
+modifier_missing,diacritic,5,0.0075528700906344415
+diacritic_compound,diacritic,4,0.006042296072507553
+tone_extra,diacritic,2,0.0030211480362537764
+modifier_extra,diacritic,2,0.0030211480362537764
+modifier_wrong,diacritic,1,0.0015105740181268882

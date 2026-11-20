@@ -1,0 +1,74 @@
+# ==========================================
+# 1. Checkpoint & Trọng số mô hình (File lớn dễ gây lỗi GitHub)
+# ==========================================
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.onnx
+# Ngoại lệ: Giữ lại mô hình demo nhỏ (~2MB) nếu muốn người khác clone về chạy thử được ngay
+!checkpoints/mid_vi_best.pt
+
+# TensorBoard logs & toàn bộ thư mục runs huấn luyện
+events.out.tfevents.*
+outputs/runs/
+
+# ==========================================
+# 2. Tập dữ liệu sinh tự động (Hàng chục ngàn ảnh PNG)
+# ==========================================
+data/synth/
+data/synth_mid/
+
+# ==========================================
+# 3. Python Cache & Build
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ==========================================
+# 4. Kiểm thử & Coverage
+# ==========================================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+
+# ==========================================
+# 5. Môi trường ảo (Virtual Environments)
+# ==========================================
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# ==========================================
+# 6. Cấu hình IDE & Hệ điều hành
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini

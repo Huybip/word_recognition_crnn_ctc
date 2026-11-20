@@ -1,0 +1,13 @@
+# ===== Cấu hình mô hình CRNN (Giai đoạn 2) =====
+img_height: 48            # ảnh rộng hơn 1,5 lần -> T đủ cho font hẹp; dấu tiếng Việt rõ hơn
+cnn:
+  channels: [64, 128, 256, 512]
+  # stride theo chiều RỘNG của 2 lớp pool đầu: (2,2) -> T = W/4 ; (2,1) -> T = W/2 ; (1,1) -> T = W
+  width_strides: [2, 2]
+rnn:
+  use_rnn: true           # false = chỉ CNN + Linear (ablation)
+  hidden: 256
+  layers: 2
+  dropout: 0.2            # dropout giữa các lớp LSTM
+  use_packing: false      # true = pack_padded_sequence để phần pad không ảnh hưởng chiều ngược của LSTM
+head_dropout: 0.1
